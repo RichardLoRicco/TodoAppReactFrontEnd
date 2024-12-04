@@ -1,6 +1,6 @@
 // import { useState } from 'react'
-import "../public/stylesheets/reset.css";
-import "../public/stylesheets/todo_v2.css";
+import "./stylesheets/reset.css";
+import "./stylesheets/todo_v2.css";
 import { useState, useEffect, SyntheticEvent } from "react";
 import todoService from "./services/todoService";
 import Content from "./components/Content";
@@ -36,7 +36,7 @@ const App = () => {
 
   const handleCompletionToggle = (_event: SyntheticEvent, id: number) => {
     const todo = allTodos.find((todo) => todo.id === id)!;
-    const changedTodo: Todo = { ...todo, completed: !todo.completed }; // was going to make this of type UpdatedTodo
+    const changedTodo: Todo = { ...todo, completed: !todo.completed };
     todoService
       .updateTodo(changedTodo)
       .then((returnedTodo) => {

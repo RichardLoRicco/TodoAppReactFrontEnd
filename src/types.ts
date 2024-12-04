@@ -12,8 +12,6 @@ export interface Todo {
 
 export type NewTodo = Omit<Todo, 'id'>;
 
-export type UpdatedTodo = Partial<NewTodo> & { id: number };
-
 export interface ContentProps {
   allTodos: Todo[];
   handleAddNewClick: () => void;
