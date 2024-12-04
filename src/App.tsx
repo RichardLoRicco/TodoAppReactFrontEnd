@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import "./stylesheets/reset.css";
 import "./stylesheets/todo_v2.css";
 import { useState, useEffect, SyntheticEvent } from "react";
