@@ -58,7 +58,7 @@ const Modal = ({
     event.preventDefault();
 
     if (!validTitle(title)) {
-      alert('You must enter a title at least 3 characters long.')
+      alert("You must enter a title at least 3 characters long.");
       return;
     }
 

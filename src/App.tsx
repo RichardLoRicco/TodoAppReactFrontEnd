@@ -6,7 +6,7 @@ import todoService from "./services/todoService";
 import Content from "./components/Content";
 import Sidebar from "./components/Sidebar";
 import Modal from "./components/Modal";
-import { findTodo, } from "./utils";
+import { findTodo } from "./utils";
 
 import { Todo, SelectedTodo } from "./types";
 
@@ -16,10 +16,9 @@ const App = () => {
   const [selectedTodo, setSelectedTodo] = useState<SelectedTodo>(null);
 
   useEffect(() => {
-    todoService.getAllTodos()
-      .then((data) => {
-        setAllTodos(data);
-      });
+    todoService.getAllTodos().then((data) => {
+      setAllTodos(data);
+    });
   }, []);
 
   const handleAddNewClick = () => {
@@ -50,10 +49,10 @@ const App = () => {
   const handleDeleteClick = (id: number) => {
     todoService
       .deleteTodo(id)
-        .then(() => {
-          setAllTodos(allTodos.filter((todo) => todo.id !== id));
-        })
-        .catch((error) => console.error("Failed to delete todo:", error));
+      .then(() => {
+        setAllTodos(allTodos.filter((todo) => todo.id !== id));
+      })
+      .catch((error) => console.error("Failed to delete todo:", error));
   };
 
   const closeModal = () => {
@@ -73,7 +72,7 @@ const App = () => {
           handleTodoClick={handleTodoClick}
           handleDeleteClick={handleDeleteClick}
         />
-        
+
         {modalStatus && (
           <Modal
             allTodos={allTodos}
@@ -83,8 +82,7 @@ const App = () => {
             setModalStatus={setModalStatus}
             setSelectedTodo={setSelectedTodo}
           />
-        )
-}
+        )}
       </div>
     </div>
   );
